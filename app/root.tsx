@@ -99,8 +99,8 @@ export default function App() {
         </div>
 
         <ScrollRestoration />
-        <Scripts />
         <LiveReload />
+        <Scripts />
       </body>
     </html>
   );
