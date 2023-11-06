@@ -1,3 +1,4 @@
+import type { LinksFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Form,
@@ -11,9 +12,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import type { LinksFunction } from "@remix-run/node";
-
-import { getContacts } from "./data";
+import { createEmptyContact, getContacts } from "./data";
 
 import appStylesHref from "./app.css";
 
@@ -24,6 +23,11 @@ export const links: LinksFunction = () => [
 export const loader = async () => {
   const contacts = await getContacts();
   return json({ contacts });
+};
+
+export const action = async () => {
+  const contact = await createEmptyContact();
+  return json({ contact });
 };
 
 export default function App() {
